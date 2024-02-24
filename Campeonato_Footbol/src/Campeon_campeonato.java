@@ -9,16 +9,16 @@ import java.util.Random;
  *
  * @author cdavi
  */
-public class Puntuacion_campe {
+public class Campeon_campeonato {
 
     /**
      * @param args the command line arguments
      */
-    //codigo para crear una tabla con los resultados del campeonato David Rojas
+    //codigo para simular un campeonato y mostrar al ganador David Rojas 
     public static void main(String[] args) {
         // TODO code application logic here
-// Definir nombres de equipos
-        String[] equipos = {"Equipo A", "Equipo B", "Equipo C", "Equipo D", "Equipo E", "Equipo F"};
+         // Definir nombres de equipos
+        String[] equipos = {"Equipo 1", "Equipo 2", "Equipo 3", "Equipo 4", "Equipo 5", "Equipo 6"};
 
         // Crear una matriz para almacenar la puntuación de cada equipo
         int[][] puntuacion = new int[equipos.length][3]; // Columnas: PJ (Partidos Jugados), PG (Partidos Ganados), y PE (Partidos Empatados)
@@ -28,6 +28,10 @@ public class Puntuacion_campe {
 
         // Mostrar la tabla de puntuación
         mostrarTabla(equipos, puntuacion);
+
+        // Determinar al campeón
+        String campeon = determinarCampeon(equipos, puntuacion);
+        System.out.println("\n¡El campeón del campeonato es: " + campeon + "!");
     }
 
     // Método para simular resultados de partidos
@@ -86,5 +90,22 @@ public class Puntuacion_campe {
                     puntuacion[i][2]); // PE (Partidos Empatados)
         }
     }
-    
-}
+
+    // Método para determinar al campeón
+    public static String determinarCampeon(String[] equipos, int[][] puntuacion) {
+        int maxPuntos = -1;
+        String campeon = "";
+
+        for (int i = 0; i < equipos.length; i++) {
+            int puntos = puntuacion[i][1] * 3 + puntuacion[i][2];
+
+            if (puntos > maxPuntos) {
+                maxPuntos = puntos;
+                campeon = equipos[i];
+            }
+        }
+
+        return campeon;
+    }
+ }
+   
