@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -9,17 +10,33 @@ import java.util.Random;
  *
  * @author cdavi
  */
+
+//
 public class Campeon_campeonato {
 
     /**
      * @param args the command line arguments
      */
-    //codigo para simular un campeonato y mostrar al ganador David Rojas 
+     // codigo Leticia Sontay ingresar nombre de los equipos
     public static void main(String[] args) {
-        // TODO code application logic here
-         // Definir nombres de equipos
-        String[] equipos = {"Equipo 1", "Equipo 2", "Equipo 3", "Equipo 4", "Equipo 5", "Equipo 6"};
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("CAMPEONATO");
+        System.out.println("Ingrese los nombres de los 6 equipos:");
 
+        String[] equipos = new String[6];
+        for (int i = 0; i < equipos.length; i++) {
+            System.out.print("Equipo " + (i + 1) + ": ");
+            equipos[i] = scanner.nextLine();
+        }
+
+        System.out.println("\nLos nombres de los equipos son:");
+        for (int i = 0; i < equipos.length; i++) {
+            System.out.println("Equipo " + (i + 1) + ": " + equipos[i]);
+        }
+
+        scanner.close();
+    
+         //codigo para simular un campeonato y mostrar al ganador David Rojas 
         // Crear una matriz para almacenar la puntuación de cada equipo
         int[][] puntuacion = new int[equipos.length][3]; // Columnas: PJ (Partidos Jugados), PG (Partidos Ganados), y PE (Partidos Empatados)
 
